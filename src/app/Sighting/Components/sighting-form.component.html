@@ -1,0 +1,55 @@
+<form (ngSubmit)="submitSighting(sightingForm)" #sightingForm="ngForm">
+  <div class="form-group">
+      <label for="count">Count</label>
+      <input
+        type="number"
+        class="form-control"
+        id="count"
+        placeholder="Count"
+        required
+        [ngModel]
+        name="count"
+        (ngModelChange)="validate($event)">
+    <br>
+    <label for="species">Species</label>
+    <select
+      class="form-control"
+      id="species"
+      required
+      [ngModel]
+      name="species">
+      <option value="" disabled>Choose a species</option>
+      <option
+        *ngFor="let species of species"
+        [ngValue]="species.name">{{ species.name }}</option>
+  </select>
+  <br>
+  <label for="date">Date</label>
+  <input
+    type="datetime-local"
+    id="dateTime"
+    class="form-control"
+    [ngModel]
+    name="dateTime"
+    required>
+  <br>
+  <label for="description">Description</label>
+  <textarea
+    id="description"
+    class="form-control"
+    rows="3" placeholder="Description"
+    [ngModel]
+    name="description"
+    required>
+  </textarea>
+  <br>
+  <button
+    class="btn btn-primary"
+    type="submit"
+    [disabled]="!sightingForm.valid">Add Sighting</button>
+  <button
+    class="btn btn-danger"
+    type="button"
+    (click)="clear(sightingForm)">Clear Form</button>
+</div>
+</form>
