@@ -10,6 +10,7 @@
 ```
 $ git clone https://github.com/joonajuusti/vincit-duck-spotting
 $ cd vincit-duck-spotting
+$ npm install
 $ ng serve
 ```
 Navigate to `http://localhost:4200/`
